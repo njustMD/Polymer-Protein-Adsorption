@@ -136,7 +136,7 @@ The deposited `processed/vae_best.pt` checkpoint and `generated/empirical_*.dat`
 
 The source code, MD-derived training matrices, energy-based sample weights, trained model, empirical latent representation, and representative generated matrices supporting this study are publicly available in this repository.
 
-Repository URL: <https://github.com/111meimei/Polymer-Protein-Adsorption>
+Repository URL: <https://github.com/njustMD/Polymer-Protein-Adsorption>
 
 ## Citation
 
