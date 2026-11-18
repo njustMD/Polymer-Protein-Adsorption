@@ -9,7 +9,7 @@ from model import ContactMatrixVAE, vae_loss_weighted
 import numpy as np
 
 
-def load_data_with_weights(data_dir='complex_structure'):
+def load_data_with_weights(data_dir='training_samples'):
     """
     加载接触矩阵和对应的能量权重。
     返回: (data, weights, n_aa)
@@ -31,7 +31,7 @@ def load_data_with_weights(data_dir='complex_structure'):
 
         # 找对应的权重文件: gro/edr_dis_matrix_X_Y.dat
         sample_id = fname.replace('dis_matrix.dat_', '')
-        edr_path = os.path.join(data_dir, 'gro', f'edr_dis_matrix_{sample_id}.dat')
+        edr_path = os.path.join(data_dir, 'Sample_Weights', f'edr_dis_matrix_{sample_id}.dat')
         w = 1.0  # 默认权重
         if os.path.exists(edr_path):
             with open(edr_path) as f:
@@ -114,7 +114,7 @@ def main():
     print(f"Device: {device}")
 
     # ---- 加载数据 + 权重 ----
-    data, weights, n_aa = load_data_with_weights('../complex_structure')
+    data, weights, n_aa = load_data_with_weights('training_samples')
     data_mean = data.mean()
     data_std = data.std()
     print(f"Data: {data.shape[0]} x ({data.shape[1]}, {n_aa})")

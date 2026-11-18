@@ -20,7 +20,7 @@ The example system is adsorption of a 25-monomer NIPAm/TBAm/AAc copolymer on epi
 ├── train.py                         # Training, validation, and sample generation
 ├── training_samples/                # Training samples
 │   ├── dis_matrix.dat_*             # 339 MD-derived distance matrices
-│   └── 样本权重/                     # Energy-based sample weights
+│   └── Sample_Weights/               # Energy-based sample weights
 │       └── edr_dis_matrix_*.dat      # 339 weight/energy files
 ├── processed/
 │   ├── protein_adj_norm.pt          # Normalized EpCAM residue adjacency matrix
@@ -29,12 +29,6 @@ The example system is adsorption of a 25-monomer NIPAm/TBAm/AAc copolymer on epi
 └── generated/
     └── empirical_*.dat              # Ten representative generated matrices
 ```
-
-The Chinese directory names translate as follows:
-
-| Directory | English meaning |
-| --- | --- |
-| `training_samples/样本权重/` | Sample weights |
 
 ## Requirements
 
@@ -78,31 +72,9 @@ The generated files in `generated/` use the same layout.
 
 ### Energy-based sample weights
 
-Each file in `training_samples/样本权重/` corresponds to one distance matrix and records the Lennard–Jones, Coulomb, and contact contributions used to calculate its training weight. The `weight=` field is read by the training workflow.
+Each file in `training_samples/Sample_Weights/` corresponds to one distance matrix and records the Lennard–Jones, Coulomb, and contact contributions used to calculate its training weight. The `weight=` field is read by the training workflow.
 
 ## Usage
-
-### Path configuration
-
-The archived `train.py` retains the directory names used in the original working environment. Before running it directly from the repository root, update the following two paths:
-
-1. In `main()`, change:
-
-   ```python
-   load_data_with_weights('../complex_structure')
-   ```
-
-   to:
-
-   ```python
-   load_data_with_weights('training_samples')
-   ```
-
-2. In `load_data_with_weights()`, change the sample-weight subdirectory from `gro` to `样本权重`:
-
-   ```python
-   edr_path = os.path.join(data_dir, '样本权重', f'edr_dis_matrix_{sample_id}.dat')
-   ```
 
 ### Training and generation
 
