@@ -18,7 +18,7 @@ The example system is adsorption of a 25-monomer NIPAm/TBAm/AAc copolymer on epi
 .
 ├── model.py                         # VAE architecture and loss functions
 ├── train.py                         # Training, validation, and sample generation
-├── 训练样本/                         # Training samples (“training samples”)
+├── training_samples/                # Training samples
 │   ├── dis_matrix.dat_*             # 339 MD-derived distance matrices
 │   └── 样本权重/                     # Energy-based sample weights
 │       └── edr_dis_matrix_*.dat      # 339 weight/energy files
@@ -34,8 +34,7 @@ The Chinese directory names translate as follows:
 
 | Directory | English meaning |
 | --- | --- |
-| `训练样本/` | Training samples |
-| `训练样本/样本权重/` | Sample weights |
+| `training_samples/样本权重/` | Sample weights |
 
 ## Requirements
 
@@ -79,7 +78,7 @@ The generated files in `generated/` use the same layout.
 
 ### Energy-based sample weights
 
-Each file in `训练样本/样本权重/` corresponds to one distance matrix and records the Lennard–Jones, Coulomb, and contact contributions used to calculate its training weight. The `weight=` field is read by the training workflow.
+Each file in `training_samples/样本权重/` corresponds to one distance matrix and records the Lennard–Jones, Coulomb, and contact contributions used to calculate its training weight. The `weight=` field is read by the training workflow.
 
 ## Usage
 
@@ -96,7 +95,7 @@ The archived `train.py` retains the directory names used in the original working
    to:
 
    ```python
-   load_data_with_weights('训练样本')
+   load_data_with_weights('training_samples')
    ```
 
 2. In `load_data_with_weights()`, change the sample-weight subdirectory from `gro` to `样本权重`:
