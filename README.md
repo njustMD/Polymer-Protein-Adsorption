@@ -1,5 +1,7 @@
 # Learning the Polymer–Protein Adsorption Landscape via Physics-Informed Generative Modeling
 
+![Physics-informed generative workflow for polymer–protein adsorption](assets/toc_graphic.png)
+
 This repository contains the data, source code, trained model, and representative generated samples associated with the manuscript **“Learning the Polymer–Protein Adsorption Landscape via Physics-Informed Generative Modeling.”**
 
 ## Overview
