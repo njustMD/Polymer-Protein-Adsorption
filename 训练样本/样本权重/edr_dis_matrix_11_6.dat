@@ -1,0 +1,5 @@
+# Energy for complex_structure/gro\dis_matrix_11_6.gro
+# cutoff=0.7nm, alpha=-2.0kJ/mol
+#         E_LJ    E_Coulomb    E_Contact   Contacts      E_Total
+   -196.652807     2.462400   -14.000000          7  -208.190406
+# weight=0.612626 (rank=99/339, lambda=200.0)
